@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PriceQueryFacade } from '@coding-challenge/stocks/data-access-price-query';
-import { filter } from "rxjs/operators";
+import { debounceTime, filter } from "rxjs/operators";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -35,6 +35,7 @@ export class StocksComponent implements OnInit, OnDestroy {
     });
 
     this.stockFormSubscription = this.stockPickerForm.valueChanges.pipe(
+      debounceTime(400),
       filter(value => !!value && !!this.stockPickerForm.valid)
     ).subscribe(() => {
       const { symbol, period } = this.stockPickerForm.value;
