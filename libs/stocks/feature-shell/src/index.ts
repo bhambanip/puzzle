@@ -1,1 +1,1 @@
-export * from './lib/stocks-feature-shell.module';
+export * from '../../../../apps/stocks/src/app/stocks/stocks-feature-shell.module';
