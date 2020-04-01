@@ -29,6 +29,22 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>From</mat-label>
+    <input matInput [max]="maxDate" [matDatepicker]="fromDate" formControlName="fromDate" [(ngModel)]="fromDateValue"
+           (dateChange)="dateChange()">
+    <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+    <mat-datepicker #fromDate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>To</mat-label>
+    <input matInput [max]="maxDate" [matDatepicker]="toDate" formControlName="toDate"
+           [(ngModel)]="toDateValue" (dateChange)="dateChange()">
+    <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+    <mat-datepicker #toDate></mat-datepicker>
+  </mat-form-field>
+
   <button (click)="fetchQuote()" mat-raised-button>Go</button>
 </form>
 
