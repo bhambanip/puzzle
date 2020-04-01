@@ -17,6 +17,12 @@ const init = async () => {
       return {
         hello: 'world'
       };
+    },
+    options: {
+      cache: {
+        expiresIn: 86400 * 1000,
+        privacy: 'private'
+      }
     }
   });
 
